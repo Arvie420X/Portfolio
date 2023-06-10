@@ -1,0 +1,11 @@
+Model Information:
+* title:	Communication Satellite
+* source:	https://sketchfab.com/3d-models/communication-satellite-9a7ad3344edb4e598de848a5badb7416
+* author:	Harri Snellman (https://sketchfab.com/rivetech)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Communication Satellite" (https://sketchfab.com/3d-models/communication-satellite-9a7ad3344edb4e598de848a5badb7416) by Harri Snellman (https://sketchfab.com/rivetech) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
