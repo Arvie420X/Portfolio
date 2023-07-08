@@ -98,7 +98,7 @@ const Hero = ({ isPlaying, setIsPlaying }) => {
                   whileInView={'show'}
                 >
                     <h1 className=''>
-                        Full Stack Developer
+                        Back-End Developer
                     </h1>
                 </motion.div>
 
@@ -110,7 +110,7 @@ const Hero = ({ isPlaying, setIsPlaying }) => {
                   viewport={{ once: false, amount: 0.3 }}
                 >
                   <div className="w-full sm:w-auto">
-                    <a target className="mx-auto w-full " href="https://drive.google.com/file/d/1U1d3LQyJQm42EZRTjBxUC8tmzp1DymFk/view?usp=sharing">
+                    <a target className="mx-auto w-full " href="https://drive.google.com/file/d/1kzSR0Il00oNGBtH1d3BTbTRjErLmKRES/view?usp=sharing">
                       <div className="bg-gradient-x hover:bg-gradient-to-r from-white to-white inline-block rounded-lg p-px group cursor-pointer w-28 md:w-full">
                         <span className="text-white bg-black group-hover:text-black group-hover:bg-white text-sm md:text-base px-6 py-4 leading-4 font-medium tracking-wide inline-block rounded-lg whitespace-nowrap transition-color duration-200 w-full text-center">
                           Resumé

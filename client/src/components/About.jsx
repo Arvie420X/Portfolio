@@ -47,8 +47,7 @@ const About = () => {
             viewport={{ once: false, amount: 0.3 }} 
             className='flex flex-col justify-center lg:pl-8 lg:w-1/2'>
             <h1 className='front text-center text-gradient lg:text-left text-base px-7 md:text-xl'>
-              As a Career shifter with a deep interest in technology. I am always on the lookout for opportunities to enhance my skills and develop web applications that deliver exceptional user experiences. 
-              While I primarily utilize the MERN stack, I am also open to incorporating other technologies such as MySQL as needed. My aim is to continuously adapt and expand my skill set for each project, ensuring exceptional user experiences and making meaningful contributions to the ever-evolving web development landscape.           
+              Driven by a strong passion for technology, I am a career shifter eagerly seeking fresh opportunities to discover. I have dedicated my time to acquiring knowledge in web development. To achieve this, I pursued a combination of bootcamp training and self-study. While my focus has primarily been on the MERN stack, I remain open to exploring other technologies as well. Throughout my learning journey, I have discovered that my true interest lies in back-end development.           
             </h1>
           </motion.div>
         </div>
