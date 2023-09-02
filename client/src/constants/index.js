@@ -1,98 +1,101 @@
-// tech 
+// tech
 import {
-    html,
-    css,
-    javascript,
-    tailwind,
-    reactjs,
-    nodejs,
-    expressjs,
-    visualstudio,
-    github,
-    git,
-    mongodb,
-    vite,
-    postman,
-    figma,
-    xampp,
-    phpMyAdmin
-} from '../assets/tech/index.js';
+  html,
+  css,
+  javascript,
+  typescript,
+  tailwind,
+  reactjs,
+  nodejs,
+  expressjs,
+  visualstudio,
+  github,
+  git,
+  mongodb,
+  vite,
+  postman,
+  figma,
+  xampp,
+  phpMyAdmin,
+} from "../assets/tech/index.js";
 
 // experience
 import {
   bpsu,
   kodego,
   // computer
-} from '../assets/experience/index.js'
-
-
+} from "../assets/experience/index.js";
 
 export const technologies = [
-    {
-        name: "HTML 5",
-        icon: html,
-      },
-      {
-        name: "CSS 3",
-        icon: css,
-      },
-      {
-        name: "JavaScript",
-        icon: javascript,
-      },
-      {
-        name: "TailwindCSS",
-        icon: tailwind,
-      },
-      {
-        name: "React JS",
-        icon: reactjs,
-      },
-      {
-        name: "Node JS",
-        icon: nodejs,
-      },
-      {
-        name: "Express JS",
-        icon: expressjs,
-      },
-      {
-        name: "Visual Studio",
-        icon: visualstudio,
-      },
-      {
-        name: "Github",
-        icon: github,
-      },
-      {
-        name: "MongoDB",
-        icon: mongodb,
-      },
-      {
-        name: "XAMPP",
-        icon: xampp,
-      },
-      {
-        name: "PHPMyAdmin",
-        icon: phpMyAdmin,
-      },
-      {
-        name: "Vite",
-        icon: vite,
-      },
-      {
-        name: "Postman",
-        icon: postman,
-      },
-      {
-        name: "git",
-        icon: git,
-      },
-      {
-        name: "figma",
-        icon: figma,
-      },
-]
+  {
+    name: "HTML 5",
+    icon: html,
+  },
+  {
+    name: "CSS 3",
+    icon: css,
+  },
+  {
+    name: "JavaScript",
+    icon: javascript,
+  },
+  {
+    name: "TypeScript",
+    icon: typescript,
+  },
+  {
+    name: "TailwindCSS",
+    icon: tailwind,
+  },
+  {
+    name: "React JS",
+    icon: reactjs,
+  },
+  {
+    name: "Node JS",
+    icon: nodejs,
+  },
+  {
+    name: "Express JS",
+    icon: expressjs,
+  },
+  {
+    name: "Visual Studio",
+    icon: visualstudio,
+  },
+  {
+    name: "Github",
+    icon: github,
+  },
+  {
+    name: "MongoDB",
+    icon: mongodb,
+  },
+  {
+    name: "XAMPP",
+    icon: xampp,
+  },
+  {
+    name: "PHPMyAdmin",
+    icon: phpMyAdmin,
+  },
+  {
+    name: "Vite",
+    icon: vite,
+  },
+  {
+    name: "Postman",
+    icon: postman,
+  },
+  {
+    name: "git",
+    icon: git,
+  },
+  {
+    name: "figma",
+    icon: figma,
+  },
+];
 
 export const experiences = [
   {
@@ -125,7 +128,7 @@ export const experiences = [
   //   date: "soon",
   //   points: [
   //     "As an integral part of my long-term goals, I am resolutely committed to pursuing a Bachelor of Science in Computer Science, and I am actively devising a comprehensive plan to ensure the realization of this ambition.",
-      
+
   //   ],
   // },
 ];
