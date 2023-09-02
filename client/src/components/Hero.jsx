@@ -116,7 +116,7 @@ const Hero = ({ isPlaying, setIsPlaying }) => {
                 <a
                   target
                   className="mx-auto w-full "
-                  href="https://drive.google.com/file/d/1IiGTRvav7pd_qDNoPCS9MgDPaUvZQTmk/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1zMWDOCY5aFrJXp6-VY-hNXpj1I_6ascL/view?usp=sharing"
                 >
                   <div className="bg-gradient-x hover:bg-gradient-to-r from-white to-white inline-block rounded-lg p-px group cursor-pointer w-28 md:w-full">
                     <span className="text-white bg-black group-hover:text-black group-hover:bg-white text-sm md:text-base px-6 py-4 leading-4 font-medium tracking-wide inline-block rounded-lg whitespace-nowrap transition-color duration-200 w-full text-center">
