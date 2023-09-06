@@ -1,7 +1,6 @@
-
 body {
   margin: 0;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: "Kumbh Sans", sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -40,28 +39,29 @@ body {
   object-fit: cover;
 }
 
-
 /* Nav  */
 .active {
   background-color: white;
-  background: linear-gradient(90.13deg, #d1aad7 0.11%, #c88bc4 25.06%, #7b8fdd 50%, #86bff2 74.8%, #bbdef2 99.76%);
-  transition: background-color 0.10s ease-in-out;
+  background: linear-gradient(
+    90.13deg,
+    #d1aad7 0.11%,
+    #c88bc4 25.06%,
+    #7b8fdd 50%,
+    #86bff2 74.8%,
+    #bbdef2 99.76%
+  );
+  transition: background-color 0.1s ease-in-out;
 }
 
 .active > * {
   color: #393646;
-  transition: color 0.10s ease-in-out;
+  transition: color 0.1s ease-in-out;
 }
-
-
-
 
 /* Hero */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 
 .heroContainer {
   height: 100vh;
@@ -69,12 +69,18 @@ body {
   background-color: black;
 }
 
-
-  .text-gradient {
-    background: linear-gradient(90.13deg,#d1aad7 .11%,#c88bc4 25.06%,#7b8fdd 50%,#86bff2 74.8%,#bbdef2 99.76%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+.text-gradient {
+  background: linear-gradient(
+    90.13deg,
+    #d1aad7 0.11%,
+    #c88bc4 25.06%,
+    #7b8fdd 50%,
+    #86bff2 74.8%,
+    #bbdef2 99.76%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .cubespinner {
   animation-name: spincube;
@@ -106,34 +112,53 @@ body {
 @keyframes spincube {
   from,
   to {
-  transform: rotateX(0deg);
+    transform: rotateX(0deg);
   }
   0%,
   25% {
-  transform: rotateX(0deg);
+    transform: rotateX(0deg);
   }
   33%,
   58% {
-  transform: rotateX(120deg);
+    transform: rotateX(120deg);
   }
   66%,
   92% {
-  transform: rotateX(240deg);
+    transform: rotateX(240deg);
   }
   100% {
-  transform: rotateX(360deg);
+    transform: rotateX(360deg);
   }
 }
 
 /* button  */
 .bg-gradient-x {
-  background: linear-gradient(90.13deg,#d1aad7 .11%,#c88bc4 25.06%,#7b8fdd 50%,#86bff2 74.8%,#bbdef2 99.76%);
-  }
+  background: linear-gradient(
+    90.13deg,
+    #d1aad7 0.11%,
+    #c88bc4 25.06%,
+    #7b8fdd 50%,
+    #86bff2 74.8%,
+    #bbdef2 99.76%
+  );
+}
 
+/* About */
+.about {
+  font-weight: 900;
+}
 
 /* Contact  */
 .text-gradient-contact {
-  background: linear-gradient(90.13deg,#d1aad7 .11%,#c88bc4 2.06%,#7b8fdd 50%, #7b8fdd 50%,#86bff2 74.8%,#bbdef2 99.76%);
+  background: linear-gradient(
+    90.13deg,
+    #d1aad7 0.11%,
+    #c88bc4 2.06%,
+    #7b8fdd 50%,
+    #7b8fdd 50%,
+    #86bff2 74.8%,
+    #bbdef2 99.76%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -147,5 +172,3 @@ body {
 .hr-element {
   /* Styles for the hr element */
 }
-
-
