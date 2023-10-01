@@ -6,6 +6,7 @@ import {
   typescript,
   tailwind,
   reactjs,
+  reactnative,
   nodejs,
   expressjs,
   visualstudio,
@@ -44,12 +45,12 @@ export const technologies = [
     icon: typescript,
   },
   {
-    name: "TailwindCSS",
-    icon: tailwind,
-  },
-  {
     name: "React JS",
     icon: reactjs,
+  },
+  {
+    name: "React Native",
+    icon: reactnative,
   },
   {
     name: "Node JS",
@@ -58,6 +59,10 @@ export const technologies = [
   {
     name: "Express JS",
     icon: expressjs,
+  },
+  {
+    name: "TailwindCSS",
+    icon: tailwind,
   },
   {
     name: "Visual Studio",

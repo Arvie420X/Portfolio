@@ -90,9 +90,9 @@ const Hero = ({ isPlaying, setIsPlaying }) => {
               viewport={{ once: false, amount: 0.3 }}
             >
               <div className="text-6xl md:text-8xl container text-rotation cubespinner">
-                <div className="face1 text-white">React</div>
-                <div className="face2 text-white">Node Js</div>
-                <div className="face3 text-white">MongoDB</div>
+                <div className="face1 text-white">React Native</div>
+                <div className="face2 text-white">MongoDB</div>
+                <div className="face3 text-white">Node.js</div>
               </div>
             </motion.div>
 

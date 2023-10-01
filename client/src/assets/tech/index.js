@@ -3,6 +3,7 @@ import css from "./css.png";
 import javascript from "./javascript.png";
 import typescript from "./typescript.png";
 import tailwind from "./tailwind.png";
+import reactnative from "./React Native.png";
 import reactjs from "./reactjs.png";
 import nodejs from "./nodejs.png";
 import expressjs from "./expressjs.png";
@@ -23,6 +24,7 @@ export {
   typescript,
   tailwind,
   reactjs,
+  reactnative,
   nodejs,
   expressjs,
   visualstudio,
