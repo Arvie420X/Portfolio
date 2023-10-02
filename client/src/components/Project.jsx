@@ -27,7 +27,7 @@ import {
   SiExpress,
 } from "react-icons/si";
 
-import { TbBrandReactNative } from "react-icons/tb";
+import { TbBrandReactNative, TbBrandRedux } from "react-icons/tb";
 
 const projects = [
   {
@@ -69,9 +69,9 @@ const projects = [
     name: "Donation App",
     platform: "Mobile",
     img: donationApp,
-    src: "https://dalle-e-seven.vercel.app/",
-    github: "https://github.com/Arvie420X/dalle-e",
-    tech: [<TbBrandReactNative />],
+    src: "",
+    github: "https://github.com/Arvie420X/DonationApp",
+    tech: [<TbBrandReactNative />, <TbBrandRedux />],
   },
   {
     name: "Loading...",
@@ -79,13 +79,7 @@ const projects = [
     img: progress,
     src: "",
     github: "",
-    tech: [
-      <SiMongodb />,
-      <SiExpress />,
-      <IoLogoReact />,
-      <IoLogoNodejs />,
-      <SiTailwindcss />,
-    ],
+    tech: [],
   },
 ];
 
