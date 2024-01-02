@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/variants";
 import TesseractCanvas from "./canvas/Tesseract";
@@ -43,6 +44,24 @@ const Hero = ({ isPlaying, setIsPlaying }) => {
     setIsPlaying(!isPlaying);
   };
 
+  const [position, setPosition] = useState("");
+  const [skills, setSkills] = useState([]);
+  const [resume, setResume] = useState("");
+
+  useEffect(() => {
+    const fetchHero = async () => {
+      try {
+        const hero = await axios.get("http://localhost:9000/admin/get-hero");
+        setPosition(hero.data[0].position);
+        setSkills(hero.data[0].skills);
+        setResume(hero.data[0].resume);
+      } catch (error) {
+        console.error("Error fetching hero data:", error);
+      }
+    };
+
+    fetchHero();
+  }, []);
   return (
     <div id="home" className="section heroContainer flex justify-center">
       <div className="lg:w-[82%] text-white space-y-3">
@@ -90,9 +109,11 @@ const Hero = ({ isPlaying, setIsPlaying }) => {
               viewport={{ once: false, amount: 0.3 }}
             >
               <div className="text-6xl md:text-8xl container text-rotation cubespinner">
-                <div className="face1 text-white">React Native</div>
-                <div className="face2 text-white">MongoDB</div>
-                <div className="face3 text-white">Node.js</div>
+                {skills?.map((skill, index) => (
+                  <div className={`face${index + 1} text-white`} key={index}>
+                    {skill}
+                  </div>
+                ))}
               </div>
             </motion.div>
 
@@ -102,7 +123,7 @@ const Hero = ({ isPlaying, setIsPlaying }) => {
               initial="hidden"
               whileInView={"show"}
             >
-              <h1 className="">Full-Stack Developer</h1>
+              <h1 className="">{position}</h1>
             </motion.div>
 
             <motion.div
@@ -113,11 +134,7 @@ const Hero = ({ isPlaying, setIsPlaying }) => {
               viewport={{ once: false, amount: 0.3 }}
             >
               <div className="w-full sm:w-auto">
-                <a
-                  target
-                  className="mx-auto w-full "
-                  href="https://drive.google.com/file/d/1zMWDOCY5aFrJXp6-VY-hNXpj1I_6ascL/view?usp=sharing"
-                >
+                <a target className="mx-auto w-full " href={resume}>
                   <div className="bg-gradient-x hover:bg-gradient-to-r from-white to-white inline-block rounded-lg p-px group cursor-pointer w-28 md:w-full">
                     <span className="text-white bg-black group-hover:text-black group-hover:bg-white text-sm md:text-base px-6 py-4 leading-4 font-medium tracking-wide inline-block rounded-lg whitespace-nowrap transition-color duration-200 w-full text-center">
                       Resumé

@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import { motion } from "framer-motion";
 
 import { fadeIn } from "../utils/variants";
 
-import {
-  supfly,
-  dalle,
-  homeAlong,
-  progress,
-  donationApp,
-} from "../assets/project/index.js";
+// import {
+//   supfly,
+//   dalle,
+//   homeAlong,
+//   progress,
+//   donationApp,
+// } from "../assets/project/index.js";
 
 import { GoMarkGithub } from "react-icons/go";
 import {
@@ -25,65 +26,106 @@ import {
   SiJavascript,
   SiMongodb,
   SiExpress,
+  SiPython,
+  SiDjango,
 } from "react-icons/si";
 
 import { TbBrandReactNative, TbBrandRedux } from "react-icons/tb";
 
-const projects = [
-  {
-    name: "HomeAlong.",
-    platform: "Web",
-    img: homeAlong,
-    src: "https://home-along.vercel.app/",
-    github: "",
-    tech: [
-      <SiMongodb />,
-      <SiExpress />,
-      <IoLogoReact />,
-      <IoLogoNodejs />,
-      <SiTailwindcss />,
-    ],
-  },
-  {
-    name: "Dalle Clone",
-    platform: "Web",
-    img: dalle,
-    src: "https://dalle-e-seven.vercel.app/",
-    github: "https://github.com/Arvie420X/dalle-e",
-    tech: [
-      <SiMongodb />,
-      <SiExpress />,
-      <IoLogoReact />,
-      <IoLogoNodejs />,
-      <SiTailwindcss />,
-    ],
-  },
-  // {
-  //   name: 'Supfly',
-  //   img: supfly,
-  //   src: 'https://arvie420x.github.io/',
-  //   github: 'https://github.com/Arvie420X/Arvie420X.github.io',
-  //   tech: [<IoLogoHtml5 />, <IoLogoCss3 />, <SiJavascript />]
-  // },
-  {
-    name: "Donation App",
-    platform: "Mobile",
-    img: donationApp,
-    src: "",
-    github: "https://github.com/Arvie420X/DonationApp",
-    tech: [<TbBrandReactNative />, <TbBrandRedux />],
-  },
-  {
-    name: "Loading...",
-    platform: "",
-    img: progress,
-    src: "",
-    github: "",
-    tech: [],
-  },
-];
+// const projects = [
+//   {
+//     name: "HomeAlong.",
+//     platform: "Web",
+//     img: homeAlong,
+//     src: "https://home-along.vercel.app/",
+//     github: "",
+//     tech: [
+//       <SiMongodb />,
+//       <SiExpress />,
+//       <IoLogoReact />,
+//       <IoLogoNodejs />,
+//       <SiTailwindcss />,
+//     ],
+//   },
+//   {
+//     name: "Dalle Clone",
+//     platform: "Web",
+//     img: dalle,
+//     src: "https://dalle-e-seven.vercel.app/",
+//     github: "https://github.com/Arvie420X/dalle-e",
+//     tech: [
+//       <SiMongodb />,
+//       <SiExpress />,
+//       <IoLogoReact />,
+//       <IoLogoNodejs />,
+//       <SiTailwindcss />,
+//     ],
+//   },
+//   // {
+//   //   name: 'Supfly',
+//   //   img: supfly,
+//   //   src: 'https://arvie420x.github.io/',
+//   //   github: 'https://github.com/Arvie420X/Arvie420X.github.io',
+//   //   tech: [<IoLogoHtml5 />, <IoLogoCss3 />, <SiJavascript />]
+//   // },
+//   {
+//     name: "Donation App",
+//     platform: "Mobile",
+//     img: donationApp,
+//     src: "",
+//     github: "https://github.com/Arvie420X/DonationApp",
+//     tech: [<TbBrandReactNative />, <TbBrandRedux />],
+//   },
+//   {
+//     name: "Loading...",
+//     platform: "",
+//     img: progress,
+//     src: "",
+//     github: "",
+//     tech: [],
+//   },
+// ];
+
+const iconComponents = {
+  SiMongodb,
+  SiExpress,
+  SiTailwindcss,
+  IoLogoReact,
+  IoLogoNodejs,
+  IoLogoHtml5,
+  IoLogoCss3,
+  SiJavascript,
+  TbBrandReactNative,
+  TbBrandRedux,
+  SiPython,
+  SiDjango,
+};
+
+const getIconByTech = (tech) => {
+  const IconComponent = iconComponents[tech];
+  return IconComponent ? <IconComponent /> : null;
+};
 
 const Project = () => {
+  const [projects, setProjects] = useState();
+  console.log("🚀 ~ file: Project.jsx:111 ~ Project ~ projects:", projects);
+
+  useEffect(() => {
+    const fetchProject = async () => {
+      try {
+        const projects = await axios.get(
+          "http://localhost:9000/admin/get-project"
+        );
+
+        setProjects(projects.data);
+      } catch (error) {
+        console.error("Error fetching hero data:", error);
+      }
+    };
+
+    fetchProject();
+  }, []);
+
   return (
     <section
       id="project"
@@ -127,7 +169,7 @@ const Project = () => {
 
             {/* Image */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {projects.map((project, index) => (
+              {projects?.map((project, index) => (
                 <div
                   className="w-full md:w-[300px] lg:w-[400px] h-[250px] group relative overflow-hidden border-2 border-white/50 rounded-xl cursor-pointer"
                   key={index}
@@ -137,8 +179,8 @@ const Project = () => {
                   {/* img */}
                   <img
                     className="w-full h-full group-hover:scale-150 transition-all duration-500"
-                    src={project.img}
-                    alt={project.img}
+                    src={`data:image/png;base64,${project.img.data}`}
+                    alt={project.img.originalname}
                   />
                   {/* github live */}
                   <div className="flex absolute -bottom-full left-56 lg:left-80 gap-2 group-hover:bottom-52 transition-all duration-500 z-50">
@@ -169,9 +211,9 @@ const Project = () => {
                   </div>
                   {/* texh stack */}
                   <div className="absolute -bottom-full left-6 group-hover:bottom-5 transition-all duration-700 z-50 flex flex-row gap-x-2">
-                    {project.tech.map((tech, index) => (
+                    {project?.tech.map((tech, index) => (
                       <span className="text-xl" key={index}>
-                        {tech}
+                        {getIconByTech(tech)}
                       </span>
                     ))}
                   </div>

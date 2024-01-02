@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -8,7 +9,7 @@ import { motion } from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
 
 import { styles } from "../styles";
-import { experiences } from "../constants";
+// import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
 
@@ -25,8 +26,8 @@ const ExperienceCard = ({ experience }) => {
       icon={
         <div className="flex justify-center items-center w-full h-full">
           <img
-            src={experience.icon}
-            alt={experience.company_name}
+            src={`data:image/png;base64,${experience.logo.data}`}
+            alt={experience.logo.originalname}
             className="w-[60%] h-[60%] object-contain"
           />
         </div>
@@ -57,6 +58,24 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
+  const [experiences, setExperiences] = useState([]);
+
+  useEffect(() => {
+    const fetchExp = async () => {
+      try {
+        const exp = await axios.get(
+          "http://localhost:9000/admin/get-experience"
+        );
+
+        setExperiences(exp.data);
+      } catch (error) {
+        console.error("Error fetching hero data:", error);
+      }
+    };
+
+    fetchExp();
+  }, []);
+
   return (
     <>
       <motion.div variants={textVariant()}>
