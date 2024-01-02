@@ -9,12 +9,17 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../utils/variants";
 
 const Tech = () => {
+  const backend =
+    import.meta.env.MODE === "development"
+      ? import.meta.env.VITE_API_URL_LOCAL
+      : import.meta.env.VITE_API_URL;
+
   const [tech, setTech] = useState();
 
   useEffect(() => {
     const fetchExp = async () => {
       try {
-        const tools = await axios.get("http://localhost:9000/admin/get-skills");
+        const tools = await axios.get(`${backend}/admin/get-skills`);
 
         setTech(tools.data);
       } catch (error) {

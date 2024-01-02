@@ -107,15 +107,18 @@ const getIconByTech = (tech) => {
 };
 
 const Project = () => {
+  const backend =
+    import.meta.env.MODE === "development"
+      ? import.meta.env.VITE_API_URL_LOCAL
+      : import.meta.env.VITE_API_URL;
+
   const [projects, setProjects] = useState();
   console.log("🚀 ~ file: Project.jsx:111 ~ Project ~ projects:", projects);
 
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const projects = await axios.get(
-          "http://localhost:9000/admin/get-project"
-        );
+        const projects = await axios.get(`${backend}/admin/get-project`);
 
         setProjects(projects.data);
       } catch (error) {

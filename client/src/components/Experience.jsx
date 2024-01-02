@@ -58,14 +58,17 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
+  const backend =
+    import.meta.env.MODE === "development"
+      ? import.meta.env.VITE_API_URL_LOCAL
+      : import.meta.env.VITE_API_URL;
+
   const [experiences, setExperiences] = useState([]);
 
   useEffect(() => {
     const fetchExp = async () => {
       try {
-        const exp = await axios.get(
-          "http://localhost:9000/admin/get-experience"
-        );
+        const exp = await axios.get(`${backend}/admin/get-experience`);
 
         setExperiences(exp.data);
       } catch (error) {

@@ -6,6 +6,11 @@ import TesseractCanvas from "./canvas/Tesseract";
 import { RiMoonClearFill, RiMoonClearLine } from "react-icons/ri";
 
 const Hero = ({ isPlaying, setIsPlaying }) => {
+  const backend =
+    import.meta.env.MODE === "development"
+      ? import.meta.env.VITE_API_URL_LOCAL
+      : import.meta.env.VITE_API_URL;
+
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -51,7 +56,7 @@ const Hero = ({ isPlaying, setIsPlaying }) => {
   useEffect(() => {
     const fetchHero = async () => {
       try {
-        const hero = await axios.get("http://localhost:9000/admin/get-hero");
+        const hero = await axios.get(`${backend}/admin/get-hero`);
         setPosition(hero.data[0].position);
         setSkills(hero.data[0].skills);
         setResume(hero.data[0].resume);

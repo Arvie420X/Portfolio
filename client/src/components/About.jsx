@@ -15,6 +15,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const About = () => {
+  const backend =
+    import.meta.env.MODE === "development"
+      ? import.meta.env.VITE_API_URL_LOCAL
+      : import.meta.env.VITE_API_URL;
+
   const [profile, setProfile] = useState();
   const [paragraph, setParagraph] = useState("");
   // console.log("🚀 ~ file: About.jsx:20 ~ About ~ paragraph:", paragraph);
@@ -22,7 +27,7 @@ const About = () => {
   useEffect(() => {
     const fetchAbout = async () => {
       try {
-        const about = await axios.get("http://localhost:9000/admin/get-about");
+        const about = await axios.get(`${backend}/admin/get-about`);
 
         const imageData = `data:image/png;base64,${about.data[0].image.data}`;
         setProfile(imageData);
