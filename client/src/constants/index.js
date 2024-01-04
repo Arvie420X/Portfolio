@@ -16,8 +16,8 @@ import {
   vite,
   postman,
   figma,
-  xampp,
-  phpMyAdmin,
+  python,
+  django,
 } from "../assets/tech/index.js";
 
 // experience
@@ -29,80 +29,80 @@ import {
 
 export const technologies = [
   {
-    name: "HTML 5",
-    icon: html,
+    name: "Django",
+    icon: django,
   },
   {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
+    name: "Python",
+    icon: python,
   },
   {
     name: "React Native",
     icon: reactnative,
   },
   {
-    name: "Node JS",
-    icon: nodejs,
+    name: "React JS",
+    icon: reactjs,
   },
   {
     name: "Express JS",
     icon: expressjs,
   },
   {
-    name: "TailwindCSS",
-    icon: tailwind,
+    name: "Node JS",
+    icon: nodejs,
   },
   {
-    name: "Visual Studio",
-    icon: visualstudio,
+    name: "TypeScript",
+    icon: typescript,
   },
   {
-    name: "Github",
-    icon: github,
+    name: "JavaScript",
+    icon: javascript,
+  },
+  {
+    name: "CSS 3",
+    icon: css,
+  },
+  {
+    name: "HTML 5",
+    icon: html,
   },
   {
     name: "MongoDB",
     icon: mongodb,
   },
   {
-    name: "XAMPP",
-    icon: xampp,
+    name: "figma",
+    icon: figma,
   },
   {
-    name: "PHPMyAdmin",
-    icon: phpMyAdmin,
-  },
-  {
-    name: "Vite",
-    icon: vite,
+    name: "Visual Studio",
+    icon: visualstudio,
   },
   {
     name: "Postman",
     icon: postman,
   },
   {
+    name: "Vite",
+    icon: vite,
+  },
+  {
+    name: "TailwindCSS",
+    icon: tailwind,
+  },
+  {
     name: "git",
     icon: git,
   },
   {
-    name: "figma",
-    icon: figma,
+    name: "Github",
+    icon: github,
   },
 ];
 
-export const experiences = [
+export const expe = [
   {
     title: "Bachelor of Science in Industrial Technology",
     company_name: "Bataan Peninsula State University",

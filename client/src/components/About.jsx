@@ -22,7 +22,6 @@ const About = () => {
 
   const [profile, setProfile] = useState();
   const [paragraph, setParagraph] = useState("");
-  // console.log("🚀 ~ file: About.jsx:20 ~ About ~ paragraph:", paragraph);
 
   useEffect(() => {
     const fetchAbout = async () => {
@@ -68,7 +67,7 @@ const About = () => {
           >
             <img
               className="h-[400px] md:h-[640px] lg:h-auto w-full p-2 object-cover mix-blend-lighten rounded-3xl"
-              src={profile}
+              src={profile ? profile : aboutImg}
               alt="aboutImage"
             />
           </motion.div>
@@ -79,11 +78,25 @@ const About = () => {
             viewport={{ once: false, amount: 0.3 }}
             className="flex flex-col justify-center lg:pl-8 lg:w-1/2"
           >
-            {/* <h1 className='front text-center text-gradient lg:text-left text-base px-7 md:text-xl'>
-              Driven by a strong passion for technology, I am a career shifter eagerly seeking fresh opportunities to discover. I have dedicated my time to acquiring knowledge in web development. To achieve this, I pursued a combination of bootcamp training and self-study. While my focus has primarily been on the MERN stack, I remain open to exploring other technologies as well. Throughout my learning journey, I have discovered that my true interest lies in back-end development.           
-            </h1> */}
             <h1 className="about front text-center text-gradient lg:text-left text-base px-7 md:text-xl">
-              {paragraph}
+              {paragraph === "" ? (
+                <>
+                  Welcome to my digital universe! I'm Arvidas, a career shifter,
+                  navigating the endless possibilities of web and app
+                  development. Ever since developing a strong interest in
+                  technology through reading and staying updated on the latest
+                  tech trends, I am now taking concrete steps towards a career
+                  in the tech industry. To bring my dream of becoming a
+                  developer to fruition, I pursue my goals through a combination
+                  of a bootcamp and independent self-study. Although my stack is
+                  centered around the MERN and Python, my tech journey embraces
+                  the spirit of exploration. Delving deeper into Python,
+                  leveraging its versatility, and exploring diverse technologies
+                  remain thrilling chapters in my ongoing tech adventure.
+                </>
+              ) : (
+                paragraph
+              )}
             </h1>
           </motion.div>
         </div>

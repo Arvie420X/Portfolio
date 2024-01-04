@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Marquee from "react-fast-marquee";
 
-// import { technologies } from "../constants/index";
+import { technologies } from "../constants/index";
 
 import { motion } from "framer-motion";
 
@@ -58,15 +58,31 @@ const Tech = () => {
 
         <Marquee speed={55} style={{ width: "100%", height: "150px" }}>
           <div className="flex justify-center">
-            {tech?.map((technology, index) => (
-              <div className="flex justify-center p-1 w-18 md:w-44" key={index}>
-                <img
-                  src={`data:image/png;base64,${technology.icon.data}`}
-                  alt={`${technology.name}`}
-                  className="h-12 md:h-16"
-                />
-              </div>
-            ))}
+            {tech?.length > 0
+              ? tech.map((technology, index) => (
+                  <div
+                    className="flex justify-center p-1 w-18 md:w-44"
+                    key={index}
+                  >
+                    <img
+                      src={`data:image/png;base64,${technology.icon.data}`}
+                      alt={`${technology.name}`}
+                      className="h-12 md:h-16"
+                    />
+                  </div>
+                ))
+              : technologies?.map((technology, index) => (
+                  <div
+                    className="flex justify-center p-1 w-18 md:w-44"
+                    key={index}
+                  >
+                    <img
+                      src={technology.icon}
+                      alt={technology.name}
+                      className="h-12 md:h-16"
+                    />
+                  </div>
+                ))}
           </div>
         </Marquee>
       </div>

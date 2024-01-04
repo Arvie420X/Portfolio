@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
 
 import { styles } from "../styles";
-// import { experiences } from "../constants";
+import { expe } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
 
@@ -26,8 +26,16 @@ const ExperienceCard = ({ experience }) => {
       icon={
         <div className="flex justify-center items-center w-full h-full">
           <img
-            src={`data:image/png;base64,${experience.logo.data}`}
-            alt={experience.logo.originalname}
+            src={
+              experience && experience.logo && experience.logo.data
+                ? `data:image/png;base64,${experience.logo.data}`
+                : experience.icon
+            }
+            alt={
+              experience && experience.logo && experience.logo.originalname
+                ? experience.logo.originalname
+                : experience.company_name
+            }
             className="w-[60%] h-[60%] object-contain"
           />
         </div>
@@ -70,6 +78,10 @@ const Experience = () => {
       try {
         const exp = await axios.get(`${backend}/admin/get-experience`);
 
+        console.log(
+          "🚀 ~ file: Experience.jsx:81 ~ fetchExp ~ exp.data:",
+          exp.data
+        );
         setExperiences(exp.data);
       } catch (error) {
         console.error("Error fetching hero data:", error);
@@ -92,12 +104,19 @@ const Experience = () => {
 
       <div className="mt-20 flex flex-col">
         <VerticalTimeline>
-          {experiences.map((experience, index) => (
-            <ExperienceCard
-              key={`experience-${index}`}
-              experience={experience}
-            />
-          ))}
+          {experiences?.length > 0
+            ? experiences.map((experience, index) => (
+                <ExperienceCard
+                  key={`experience-${index}`}
+                  experience={experience}
+                />
+              ))
+            : expe.map((experience, index) => (
+                <ExperienceCard
+                  key={`experience-${index}`}
+                  experience={experience}
+                />
+              ))}
         </VerticalTimeline>
       </div>
     </>

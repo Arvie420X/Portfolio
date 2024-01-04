@@ -5,13 +5,7 @@ import { motion } from "framer-motion";
 
 import { fadeIn } from "../utils/variants";
 
-// import {
-//   supfly,
-//   dalle,
-//   homeAlong,
-//   progress,
-//   donationApp,
-// } from "../assets/project/index.js";
+import { dalle, homeAlong } from "../assets/project/index.js";
 
 import { GoMarkGithub } from "react-icons/go";
 import {
@@ -32,59 +26,49 @@ import {
 
 import { TbBrandReactNative, TbBrandRedux } from "react-icons/tb";
 
-// const projects = [
-//   {
-//     name: "HomeAlong.",
-//     platform: "Web",
-//     img: homeAlong,
-//     src: "https://home-along.vercel.app/",
-//     github: "",
-//     tech: [
-//       <SiMongodb />,
-//       <SiExpress />,
-//       <IoLogoReact />,
-//       <IoLogoNodejs />,
-//       <SiTailwindcss />,
-//     ],
-//   },
-//   {
-//     name: "Dalle Clone",
-//     platform: "Web",
-//     img: dalle,
-//     src: "https://dalle-e-seven.vercel.app/",
-//     github: "https://github.com/Arvie420X/dalle-e",
-//     tech: [
-//       <SiMongodb />,
-//       <SiExpress />,
-//       <IoLogoReact />,
-//       <IoLogoNodejs />,
-//       <SiTailwindcss />,
-//     ],
-//   },
-//   // {
-//   //   name: 'Supfly',
-//   //   img: supfly,
-//   //   src: 'https://arvie420x.github.io/',
-//   //   github: 'https://github.com/Arvie420X/Arvie420X.github.io',
-//   //   tech: [<IoLogoHtml5 />, <IoLogoCss3 />, <SiJavascript />]
-//   // },
-//   {
-//     name: "Donation App",
-//     platform: "Mobile",
-//     img: donationApp,
-//     src: "",
-//     github: "https://github.com/Arvie420X/DonationApp",
-//     tech: [<TbBrandReactNative />, <TbBrandRedux />],
-//   },
-//   {
-//     name: "Loading...",
-//     platform: "",
-//     img: progress,
-//     src: "",
-//     github: "",
-//     tech: [],
-//   },
-// ];
+const initialProject = [
+  {
+    name: "Dalle Clone",
+    platform: "Web",
+    imgFallback: {
+      data: dalle,
+      originalname: "Screenshot 2023-05-06 121311.png",
+    },
+    src: "https://dalle-e-seven.vercel.app/",
+    github: "https://github.com/Arvie420X/dalle-e",
+    tech: [
+      "SiMongodb",
+      "SiExpress",
+      "IoLogoReact",
+      "IoLogoNodejs",
+      "SiTailwindcss",
+    ],
+  },
+  {
+    name: "HomeAlong.",
+    platform: "Web",
+    imgFallback: {
+      data: homeAlong,
+      originalname: "Screenshot 2023-05-09 090358.png",
+    },
+    src: "https://home-along.vercel.app/",
+    github: "",
+    tech: [
+      "SiMongodb",
+      "SiExpress",
+      "IoLogoReact",
+      "IoLogoNodejs",
+      "SiTailwindcss",
+    ],
+  },
+  // {
+  //   name: 'Supfly',
+  //   imgFallback: supfly,
+  //   src: 'https://arvie420x.github.io/',
+  //   github: 'https://github.com/Arvie420X/Arvie420X.github.io',
+  //   tech: [<IoLogoHtml5 />, <IoLogoCss3 />, <SiJavascript />]
+  // },
+];
 
 const iconComponents = {
   SiMongodb,
@@ -112,7 +96,7 @@ const Project = () => {
       ? import.meta.env.VITE_API_URL_LOCAL
       : import.meta.env.VITE_API_URL;
 
-  const [projects, setProjects] = useState();
+  const [projects, setProjects] = useState(initialProject);
   console.log("🚀 ~ file: Project.jsx:111 ~ Project ~ projects:", projects);
 
   useEffect(() => {
@@ -182,9 +166,14 @@ const Project = () => {
                   {/* img */}
                   <img
                     className="w-full h-full group-hover:scale-150 transition-all duration-500"
-                    src={`data:image/png;base64,${project.img.data}`}
-                    alt={project.img.originalname}
+                    src={
+                      project.img && project.img.data
+                        ? `data:image/png;base64,${project.img.data}`
+                        : project.imgFallback.data
+                    }
+                    alt={project.img && project.img.originalname}
                   />
+
                   {/* github live */}
                   <div className="flex absolute -bottom-full left-56 lg:left-80 gap-2 group-hover:bottom-52 transition-all duration-500 z-50">
                     <a href={project.github}>

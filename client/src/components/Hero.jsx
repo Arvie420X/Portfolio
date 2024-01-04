@@ -114,11 +114,21 @@ const Hero = ({ isPlaying, setIsPlaying }) => {
               viewport={{ once: false, amount: 0.3 }}
             >
               <div className="text-6xl md:text-8xl container text-rotation cubespinner">
-                {skills?.map((skill, index) => (
-                  <div className={`face${index + 1} text-white`} key={index}>
-                    {skill}
-                  </div>
-                ))}
+                {/* data from MongoDB */}
+                {skills?.length > 0 ? (
+                  skills?.map((skill, index) => (
+                    <div className={`face${index + 1} text-white`} key={index}>
+                      {skill}
+                    </div>
+                  ))
+                ) : (
+                  // Display a loading message or fallback content while fetching data
+                  <>
+                    <div className={`face1 text-white`}>React Native</div>
+                    <div className={`face2 text-white`}>Node.js</div>
+                    <div className={`face3 text-white`}>Django</div>
+                  </>
+                )}
               </div>
             </motion.div>
 
@@ -128,7 +138,11 @@ const Hero = ({ isPlaying, setIsPlaying }) => {
               initial="hidden"
               whileInView={"show"}
             >
-              <h1 className="">{position}</h1>
+              {position === "" ? (
+                <h1 className="">Software Developer</h1>
+              ) : (
+                <h1 className="">{position}</h1>
+              )}
             </motion.div>
 
             <motion.div

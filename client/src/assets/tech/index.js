@@ -14,8 +14,8 @@ import mongodb from "./mongodb.png";
 import vite from "./vite.png";
 import postman from "./postman.png";
 import figma from "./figma.png";
-import xampp from "./XAMPP.png";
-import phpMyAdmin from "./phpMyAdmin.png";
+import python from "./python.png";
+import django from "./django.png";
 
 export {
   html,
@@ -34,6 +34,6 @@ export {
   vite,
   postman,
   figma,
-  xampp,
-  phpMyAdmin,
+  python,
+  django,
 };
