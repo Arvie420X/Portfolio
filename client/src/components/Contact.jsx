@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { motion } from "framer-motion";
 
@@ -16,10 +16,7 @@ const Contact = () => {
   };
 
   const [formDetails, setFormDetails] = useState(formInitialDetails);
-  console.log(
-    "🚀 ~ file: Contact.jsx:18 ~ Contact ~ formDetails:",
-    formDetails
-  );
+
   const [buttonText, setButtonText] = useState("Send");
   const [status, setStatus] = useState({});
 
@@ -32,8 +29,40 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Front-end validation
+    let isValidForm = true;
+
+    if (
+      !formDetails.firstName ||
+      !formDetails.lastName ||
+      !formDetails.email ||
+      !formDetails.phone ||
+      !formDetails.message
+    ) {
+      setStatus({
+        success: false,
+        message: "Please fill in all fields with valid data.",
+      });
+      isValidForm = false;
+    }
+
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    const isValidEmail = emailRegex.test(formDetails.email);
+
+    if (!isValidEmail) {
+      setStatus({
+        success: false,
+        message: "Invalid email",
+      });
+      isValidForm = false;
+    }
+
+    if (!isValidForm) {
+      return; // Don't proceed with form submission
+    }
+
     setButtonText("Sending...");
-    console.log("🚀 ~ file: Contact.jsx:37 ~ handleSubmit ~ backend:", backend);
     try {
       let response = await fetch(`${backend}/contact`, {
         method: "POST",
@@ -42,21 +71,18 @@ const Contact = () => {
         },
         body: JSON.stringify(formDetails),
       });
-      console.log(
-        "🚀 ~ file: Contact.jsx:39 ~ handleSubmit ~ response:",
-        response
-      );
+
       setButtonText("Send");
 
       let result = await response.json();
-      console.log("🚀 ~ file: Contact.jsx:44 ~ handleSubmit ~ result:", result);
+
       if (result.code === 200) {
         setFormDetails(formInitialDetails);
         setStatus({ success: true, message: "Message sent successfully" });
       } else {
         setStatus({
           success: false,
-          message: "Something went wrong, please try again later.",
+          message: result.status,
         });
       }
     } catch (error) {

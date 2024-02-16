@@ -124,9 +124,9 @@ const Hero = ({ isPlaying, setIsPlaying }) => {
                 ) : (
                   // Display a loading message or fallback content while fetching data
                   <>
-                    <div className={`face1 text-white`}>React Native</div>
+                    <div className={`face1 text-white`}>React</div>
                     <div className={`face2 text-white`}>Node.js</div>
-                    <div className={`face3 text-white`}>Django</div>
+                    <div className={`face3 text-white`}>Prisma</div>
                   </>
                 )}
               </div>

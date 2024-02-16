@@ -62,12 +62,12 @@ contactEmail.verify((error) => {
 });
 
 router.post("/contact", (req, res) => {
-  const name = req.body.firstName + req.body.lastName;
-  const email = req.body.email;
-  const message = req.body.message;
-  const phone = req.body.phone;
+  const { firstName, lastName, email, message, phone } = req.body;
+
+  const name = firstName + " " + lastName;
+
   const mail = {
-    from: process.env.EMAIL_USER,
+    from: email,
     to: process.env.EMAIL_USER,
     subject: "Contact Form Submission - Portfolio",
     html: `

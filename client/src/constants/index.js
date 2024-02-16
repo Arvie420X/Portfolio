@@ -17,7 +17,9 @@ import {
   postman,
   figma,
   python,
-  django,
+  // django,
+  nestjs,
+  prisma,
 } from "../assets/tech/index.js";
 
 // experience
@@ -29,8 +31,12 @@ import {
 
 export const technologies = [
   {
-    name: "Django",
-    icon: django,
+    name: "Prisma",
+    icon: prisma,
+  },
+  {
+    name: "NestJS",
+    icon: nestjs,
   },
   {
     name: "Python",

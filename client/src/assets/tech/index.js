@@ -15,7 +15,9 @@ import vite from "./vite.png";
 import postman from "./postman.png";
 import figma from "./figma.png";
 import python from "./python.png";
-import django from "./django.png";
+// import django from "./django.png";
+import nestjs from "./nestjs.png";
+import prisma from "./prisma.png";
 
 export {
   html,
@@ -35,5 +37,7 @@ export {
   postman,
   figma,
   python,
-  django,
+  // django,
+  nestjs,
+  prisma,
 };

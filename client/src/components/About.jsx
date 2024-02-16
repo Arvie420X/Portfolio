@@ -89,10 +89,11 @@ const About = () => {
                   in the tech industry. To bring my dream of becoming a
                   developer to fruition, I pursue my goals through a combination
                   of a bootcamp and independent self-study. Although my stack is
-                  centered around the MERN and Python, my tech journey embraces
-                  the spirit of exploration. Delving deeper into Python,
-                  leveraging its versatility, and exploring diverse technologies
-                  remain thrilling chapters in my ongoing tech adventure.
+                  centered around React and NodeJs, my tech journey embraces the
+                  spirit of exploration. Delving deeper into Python, leveraging
+                  its versatility, and learning about NestJS, since exploring
+                  diverse technologies, remain thrilling chapters in my ongoing
+                  tech adventure.
                 </>
               ) : (
                 paragraph
